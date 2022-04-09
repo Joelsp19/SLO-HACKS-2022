@@ -9,6 +9,9 @@ myCanvas.pack()
 
 
 fallinggame = FallingStars(myCanvas)
-fallinggame.create_circle(1300, 100, 10)
+fallinggame.create_stars()
+window.bind("<Left>", fallinggame.left)
+window.bind("<Right>", fallinggame.right)
+
 window.mainloop()
 
