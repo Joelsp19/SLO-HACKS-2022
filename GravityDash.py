@@ -44,9 +44,11 @@ class GravityDash:
         x = -1 * self.spike_speed
         y = 0
         for spike in self.spike_list:
-            print(self.canvas.coords(spike)[0])
             if(self.canvas.coords(spike)[0] > self.bounds):
                 self.canvas.move(spike, x, y)
+            else:
+                self.spike_list.remove(spike)
+                self.canvas.delete(spike)
 
     def up(self, event):
         if(self.direction!=Direction.UP):
@@ -61,3 +63,10 @@ class GravityDash:
             y = self.stride
             self.canvas.move(self.char, x, y)
             self.direction = Direction.DOWN
+
+    def check_hit(self):
+        if(len(self.canvas.find_overlapping(self.canvas.coords(self.char)[0],self.canvas.coords(self.char)[1],self.canvas.coords(self.char)[2],self.canvas.coords(self.char)[3])) > 2):
+            return True
+        else:
+            return False
+
