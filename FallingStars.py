@@ -64,12 +64,3 @@ class FallingStars:
             return True
         else:
             return False
-
-
-
-
-
-
-
-
-
