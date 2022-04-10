@@ -3,7 +3,7 @@ def create_circle(canvas, x, y, r, fillColor, outlineColor):
     y0 = y - r
     x1 = x + r
     y1 = y + r
-    return canvas.create_oval(x0, y0, x1, y1, fill=fillColor, outline=outlineColor)
+    return canvas.create_oval(x0, y0, x1, y1, fill=fillColor, outline=outlineColor, width = 3)
 
 def create_wall(canvas, x, y, l, w, color):
     x0 = x
@@ -20,3 +20,4 @@ def create_spike(canvas,x,y,l,color,type):
     else:
         points = [x,y,x-w,y-l,x+w,y-l]
         return canvas.create_polygon(points,fill=color, outline=color)
+

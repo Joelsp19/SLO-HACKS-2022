@@ -7,24 +7,26 @@ class Direction(enum.Enum):
     UP = 1
     DOWN = 2
 
-wall_dim = [400, 10]
+buffer = 50
+wall_dim = [1400, 20]
 wall_offset = 25
-spike_height = 10
-spike_offset = 10 + wall_offset
+spike_height = 20
+spike_offset = 20 + wall_offset
+y_loc = 550
 
 class GravityDash:
     def __init__(self, canvas):
-        self.stride = 50
-        self.size = [500,200,10]
+        self.stride = 100
+        self.size = [wall_offset + buffer,y_loc,20]
         self.canvas = canvas
         self.direction = Direction.UP
-        self.char = canvas.create_rectangle(self.size[0],self.size[1], self.size[0]+10, self.size[1]+10, fill="red")
+        self.char = canvas.create_rectangle(self.size[0],self.size[1], self.size[0]+self.size[2], self.size[1]+self.size[2], fill="red")
         self.create_walls()
         self.spike_list = []
-        self.spike_speed = 20
+        self.spike_speed = 10
         self.bounds = self.size[0]
     def create_walls(self):
-        wall_location = [self.size[0] - wall_offset,200-wall_dim[1]]
+        wall_location = [self.size[0] - wall_offset,self.size[1]-wall_dim[1]]
         diff = self.stride + self.size[2] * 2
         color = "black"
         create_wall(self.canvas, wall_location[0],wall_location[1],wall_dim[0],wall_dim[1],color)
