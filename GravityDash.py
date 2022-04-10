@@ -7,7 +7,6 @@ class Direction(enum.Enum):
     UP = 1
     DOWN = 2
 
-
 wall_dim = [400, 10]
 wall_offset = 25
 spike_height = 10
